@@ -1,0 +1,36 @@
+body{
+  margin: 0;
+}
+div.brick{
+  background-image: url("wall.gif");
+  background-size: cover;
+  width:25px;
+  height:25px;
+  display: inline-block;
+}
+div.coin{
+  display: inline-block;
+  background-image: url("coin.gif");
+  background-size: cover;
+  width:25px;
+  height:25px;
+}
+div.pacman{
+  background-image: url('pacman.gif');
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+}
+div.empty{
+  background-color: rgba(0,0,0,0);
+  width:25px;
+  heigth:25px;
+  display: inline-block;
+}
+div.open{
+  background-color: rgba(0,0,0,0);
+  width:25px;
+  heigth:25px;
+  display: inline-block;
+}
