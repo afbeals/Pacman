@@ -41,11 +41,18 @@ var world = function()
       }
     }
     layout += "</div>";
-    console.log(layout);
   }
 
   $("#world").append(layout);
 }
+
+var movePacman = function(key)
+{
+
+}
+
+
+
 
 $(document).ready(function()
 {
