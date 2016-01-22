@@ -12,13 +12,15 @@ var grid = [
             ];
 
 var pacman = {
-  x: 0,
-  y: 0
+  x: 1,
+  y: 1
 }
+
+var score = 0;
 
 var world = function()
 {
-  var layout = "";
+  var layout = "<div class='pacman'></div>\n"+"<div class='score'></div>\n";
   for(var y = 0; y < grid.length; y++)
   {
     layout += "<div class='row'>\n";
@@ -48,43 +50,56 @@ var world = function()
     layout += "</div>";
   }
   // console.log(layout);
-  $("#world").append(layout);
+  $("#world").html(layout);
 }
 
-var getScore = function(score)
+var getScore = function()
 {
-  $(".score").css({left: "425px"}).html(score);
+  if(grid[pacman.y][pacman.x]==1)
+  {
+    grid[pacman.y][pacman.x]=4;
+    score+=25;
+  }
+
+}
+
+var displayScore = function()
+{
+  $(".score").css({left: "425px"}).html(score +"pts");
 }
 
 var loadPacman = function()
 {
-  $(".pacman").css({top: pacman.y *"px", left: pacman.x *"px"});
+  $(".pacman").css({top: pacman.y *25+"px", left: pacman.x *25+"px"});
 }
 
 var movePacman = function()
 {
   $(document).on('keydown', function(key)
   {
-    console.log(grid[pacman.x][pacman.y]);
-    if(key.keyCode == 37)
+    if(key.keyCode == 37 && grid[pacman.y][pacman.x-1] > 0)
     {
       pacman.x--;
-     
+      getScore();
     }
-    if(key.keyCode == 38)
+    if(key.keyCode == 38  && grid[pacman.y-1][pacman.x] > 0)
     {
       pacman.y--;
+      getScore();
     }
-    if(key.keyCode == 39)
+    if(key.keyCode == 39  && grid[pacman.y][pacman.x+1] > 0)
     {
       pacman.x++;
+      getScore();
     }
-    if(key.keyCode == 40)
+    if(key.keyCode == 40  && grid[pacman.y+1][pacman.x] > 0)
     {
       pacman.y++;
+      getScore();
     }
-
+    world();
     loadPacman();
+    displayScore();
   })
 }
 
@@ -92,6 +107,6 @@ $(document).ready(function()
 {
   world();
   loadPacman();
-  getScore();
+  displayScore();
   movePacman();
 });
