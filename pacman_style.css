@@ -46,9 +46,18 @@ div.score{
   border-radius: 10px;
   box-shadow: 5px 5px 5px white;
   height: 60px;
-  width: auto;
+  width: 100px;
   color: red;
   text-align: center;
   font-size: 38px;
   padding: 10px;
+}
+div.ghost{
+  background-image: url('ghost.gif');
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  position: absolute;
+
 }
