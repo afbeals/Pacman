@@ -8,6 +8,7 @@ div.brick{
   width:25px;
   height:25px;
   display: inline-block;
+  vertical-align: top;
 }
 div.coin{
   display: inline-block;
@@ -15,6 +16,7 @@ div.coin{
   background-size: cover;
   width:25px;
   height:25px;
+  vertical-align: top;
 }
 div.pacman{
   background-image: url('pacman.gif');
@@ -22,16 +24,19 @@ div.pacman{
   width: 25px;
   height: 25px;
   display: inline-block;
+  position: absolute;
 }
 div.empty{
   background-color: rgba(0,0,0,0);
   width:25px;
   heigth:25px;
   display: inline-block;
+  vertical-align: top;
 }
 div.open{
   background-color: rgba(0,0,0,0);
   width:25px;
   heigth:25px;
   display: inline-block;
+  vertical-align: top;
 }
