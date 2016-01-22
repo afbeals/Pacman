@@ -11,6 +11,11 @@ var grid = [
               [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
             ];
 
+var pacman = {
+  x: 0,
+  y: 0
+}
+
 var world = function()
 {
   var layout = "";
@@ -42,35 +47,41 @@ var world = function()
     }
     layout += "</div>";
   }
-  console.log(layout);
+  // console.log(layout);
   $("#world").append(layout);
+}
+
+var getScore = function(score)
+{
+  $(".score").css({left: "425px"}).html(score);
 }
 
 var loadPacman = function()
 {
-  $(".pacman").css({top: "25px", left: "25px"});
-
+  $(".pacman").css({top: pacman.y *"px", left: pacman.x *"px"});
 }
 
 var movePacman = function()
 {
   $(document).on('keydown', function(key)
   {
+    console.log(grid[pacman.x][pacman.y]);
     if(key.keyCode == 37)
     {
-      $(".pacman").animate({left: "-=25px"},100,function(){});
+      pacman.x++
+     loadPacman();
     }
     if(key.keyCode == 38)
     {
-      $(".pacman").animate({top: "-=25px"},100,function(){});
+      $(".pacman").animate({top: "-=25px"},150,function(){});
     }
     if(key.keyCode == 39)
     {
-      $(".pacman").animate({left: "+=25px"},100,function(){});
+      $(".pacman").animate({left: "+=25px"},150,function(){});
     }
     if(key.keyCode == 40)
     {
-      $(".pacman").animate({top: "+=25px"},100,function(){});
+      $(".pacman").animate({top: "+=25px"},150,function(){});
     }
   })
 }
@@ -79,5 +90,6 @@ $(document).ready(function()
 {
   world();
   loadPacman();
+  getScore();
   movePacman();
 });
