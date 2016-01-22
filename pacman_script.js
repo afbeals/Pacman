@@ -68,21 +68,23 @@ var movePacman = function()
     console.log(grid[pacman.x][pacman.y]);
     if(key.keyCode == 37)
     {
-      pacman.x++
-     loadPacman();
+      pacman.x--;
+     
     }
     if(key.keyCode == 38)
     {
-      $(".pacman").animate({top: "-=25px"},150,function(){});
+      pacman.y--;
     }
     if(key.keyCode == 39)
     {
-      $(".pacman").animate({left: "+=25px"},150,function(){});
+      pacman.x++;
     }
     if(key.keyCode == 40)
     {
-      $(".pacman").animate({top: "+=25px"},150,function(){});
+      pacman.y++;
     }
+
+    loadPacman();
   })
 }
 
